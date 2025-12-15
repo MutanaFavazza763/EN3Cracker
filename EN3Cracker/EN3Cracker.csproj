@@ -95,11 +95,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-	<ItemGroup>
-		<Content Include="Resources\**\*">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-			<Link>%(RecursiveDir)%(FileName)%(Extension)</Link>
-		</Content>
-	</ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <Link>%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </Content>
+    <Content Include="Resources\Crackfiles\Cvte.Platform.Basic.dll" />
+  </ItemGroup>
+  <ItemGroup />
 </Project>
