@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EN3Cracker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="希沃白板3破解工具"  Width="500" WindowStartupLocation="CenterScreen" SizeToContent="Height" ResizeMode="CanMinimize" Cursor="">
     <Grid>
-        
+        <Grid Margin="8,8,8,8">
+            <DockPanel>
+                <DockPanel DockPanel.Dock="Top">
+                    <Image Source="/Resources/Assets/icon.png" Width="150" Height="150" DockPanel.Dock="Left" HorizontalAlignment="Left"/>
+                    <RichTextBox />
+                </DockPanel>
+                <Grid DockPanel.Dock="Top" Height="20" Margin="0,4,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="希沃白板3程序目录" FontSize="14" />
+                    <TextBox Grid.Column="1" HorizontalAlignment="Stretch" />
+                    <Button Width="50" DockPanel.Dock="Right" HorizontalAlignment="Right" Grid.Column="2" >浏览</Button>
+
+                </Grid>
+                <Button x:Name="startpatch" FontSize="36" DockPanel.Dock="Bottom" Margin="0,4,0,0" Height="50">破解</Button>
+            </DockPanel>
+        </Grid>
     </Grid>
 </Window>

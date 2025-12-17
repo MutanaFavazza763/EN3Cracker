@@ -1,3 +1,9 @@
 <Solution>
-  <Project Path="EN3Cracker/EN3Cracker.csproj" Id="5a4839df-fc8c-4061-a295-e5c13e4c823f" />
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="EN3Cracker/EN3Cracker.csproj" Id="5a4839df-fc8c-4061-a295-e5c13e4c823f">
+    <Platform Solution="Debug|x64" Project="x64" />
+  </Project>
 </Solution>
