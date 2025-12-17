@@ -1,12 +1,38 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Admin\\Documents\\GitHub\\EN3Cracker\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|EN3Cracker||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A4839DF-FC8C-4061-A295-E5C13E4C823F}|EN3Cracker\\EN3Cracker.csproj|c:\\users\\admin\\documents\\github\\en3cracker\\en3cracker\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|1e78f8db-6c07-4d61-a18f-7514010abd56"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EN3Cracker",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\EN3Cracker\\EN3Cracker\\EN3Cracker.csproj",
+              "RelativeDocumentMoniker": "EN3Cracker\\EN3Cracker.csproj",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\EN3Cracker\\EN3Cracker\\EN3Cracker.csproj*",
+              "RelativeToolTip": "EN3Cracker\\EN3Cracker.csproj*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-16T15:18:11.296Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
