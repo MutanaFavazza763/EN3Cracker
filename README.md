@@ -1,4 +1,5 @@
-# EN3Cracker-希沃白板3激活工具
+# <img width="64" height="64" alt="icon" src="https://github.com/user-attachments/assets/e09e40f5-e568-48be-b7c5-7ef584f25388" />EN3Cracker-希沃白板3激活工具
+
 
 解除希沃白板3的15天试用期结束后的限制
 
