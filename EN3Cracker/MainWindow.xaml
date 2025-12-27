@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EN3Cracker"
         mc:Ignorable="d"
-        Title="希沃白板3激活工具"  Width="500" WindowStartupLocation="CenterScreen" SizeToContent="Height" ResizeMode="CanMinimize" Cursor="" Icon="/icon.ico">
         Title="希沃白板3激活工具"  Width="500" WindowStartupLocation="CenterScreen" SizeToContent="Height" ResizeMode="CanMinimize" Cursor="" Icon="/icon.ico" ContentRendered="Window_ContentRendered">
     <Grid>
         <Grid Margin="8,8,8,8">
@@ -22,9 +21,8 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="希沃白板3程序目录" FontSize="14" />
-                    <TextBox Grid.Column="1" HorizontalAlignment="Stretch" />
+                    <TextBox x:Name="enpathbox" Grid.Column="1" HorizontalAlignment="Stretch" />
                     <Button Width="50" DockPanel.Dock="Right" HorizontalAlignment="Right" Grid.Column="2" >浏览</Button>
-
                 </Grid>
                 <Button x:Name="startpatch" FontSize="36" DockPanel.Dock="Top" Margin="0,4,0,0" Height="50" Click="startpatch_Click">激活</Button>
                 <TextBlock DockPanel.Dock="Top" Margin="0,4,0,0">
