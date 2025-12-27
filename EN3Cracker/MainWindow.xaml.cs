@@ -25,6 +25,7 @@ namespace EN3Cracker
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -40,9 +41,34 @@ namespace EN3Cracker
             {
                 Process.GetCurrentProcess().Kill();
             }
-        }
+
+            //C:\Program Files (x86)\Seewo\EasiNote\Main\EasiNote.exe
+            string softname = "EasiNote\\Main\\EasiNote.exe";
+            RegistryKey lmregkey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32);//访问32位注册表
+            RegistryKey uninstallkey = lmregkey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall");//从卸载中寻找安装路径
+            foreach (var subkey in uninstallkey.GetSubKeyNames())//遍历子键
+            {
+                RegistryKey childkey = uninstallkey.OpenSubKey(subkey);
+                if (childkey != null)
+                {
+                    foreach (var subchildkey in childkey.GetValueNames())
+                    {
+                        var enexepath = Convert.ToString(childkey.GetValue(subchildkey));
+                        if (enexepath.Contains(softname))
+                        {
+                            enpathbox.Text = enexepath.Replace("\\EasiNote.exe", "");
+                        }
+                    }
+                }
+            }
         }
 
+
+
+        private void startpatch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 
         private void repo_Click(object sender, RoutedEventArgs e)
         {
