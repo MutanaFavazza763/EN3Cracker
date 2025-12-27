@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:EN3Cracker"
         mc:Ignorable="d"
         Title="希沃白板3激活工具"  Width="500" WindowStartupLocation="CenterScreen" SizeToContent="Height" ResizeMode="CanMinimize" Cursor="" Icon="/icon.ico">
+        Title="希沃白板3激活工具"  Width="500" WindowStartupLocation="CenterScreen" SizeToContent="Height" ResizeMode="CanMinimize" Cursor="" Icon="/icon.ico" ContentRendered="Window_ContentRendered">
     <Grid>
         <Grid Margin="8,8,8,8">
             <DockPanel>
