@@ -31,7 +31,6 @@ namespace EN3Cracker
         public MainWindow()
         {
             InitializeComponent();
-            Introduction.Selection.Load(new FileStream(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "introduction.rtf"),FileMode.Open),DataFormats.Rtf);
         }
         private void Window_ContentRendered(object sender, EventArgs e)
         {
@@ -41,6 +40,7 @@ namespace EN3Cracker
             {
                 Process.GetCurrentProcess().Kill();
             }
+			Introduction.Selection.Load(new FileStream("./Assets/introduction.rtf", FileMode.Open), DataFormats.Rtf);
 
             //C:\Program Files (x86)\Seewo\EasiNote\Main\EasiNote.exe
             string softname = "EasiNote\\Main\\EasiNote.exe";
