@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -203,6 +204,21 @@ namespace EN3Cracker
 		private void enpathbox_TextChanged(object sender, TextChangedEventArgs e)
 		{
 
+		}
+
+		private void browse_Click(object sender, RoutedEventArgs e)
+		{
+			// 创建CommonOpenFileDialog对象
+			var enpathbd = new CommonOpenFileDialog();
+			enpathbd.IsFolderPicker = true;
+
+			// 显示文件夹选择对话框
+			CommonFileDialogResult result = enpathbd.ShowDialog();
+
+			if (result== CommonFileDialogResult.Ok)
+			{
+				enpathbox.Text= enpathbd.FileName;
+			}
 		}
 	}
 }
