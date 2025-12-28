@@ -21,10 +21,15 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="希沃白板3程序目录" FontSize="14" />
-                    <TextBox x:Name="enpathbox" Grid.Column="1" HorizontalAlignment="Stretch" />
+                    <TextBox x:Name="enpathbox" Grid.Column="1" HorizontalAlignment="Stretch" TextChanged="enpathbox_TextChanged" />
                     <Button Width="50" DockPanel.Dock="Right" HorizontalAlignment="Right" Grid.Column="2" >浏览</Button>
                 </Grid>
-                <Button x:Name="startpatch" FontSize="36" DockPanel.Dock="Top" Margin="0,4,0,0" Height="50" Click="startpatch_Click">激活</Button>
+                <Button x:Name="startpatch" FontSize="20" DockPanel.Dock="Top" Margin="0,4,0,0" Height="50" Click="startpatch_Click">
+                    <Grid Width="{Binding ActualWidth, ElementName=startpatch}" Height="{Binding ActualHeight, ElementName=startpatch, Mode=OneWay}">
+                        <ProgressBar x:Name="progress"/>
+                        <TextBlock x:Name="startbtntext" HorizontalAlignment="Center" VerticalAlignment="Center">激活</TextBlock>
+                    </Grid>
+                </Button>
                 <TextBlock DockPanel.Dock="Top" Margin="0,4,0,0">
                     GitHub 
                     <Hyperlink x:Name="repo" NavigateUri="https://github.com/HuskeyDev/EN3Cracker" Click="repo_Click" >https://github.com/HuskeyDev/EN3Cracker</Hyperlink>
