@@ -3,6 +3,8 @@ name: build
 on:
   push:
     branches: [ main ]
+    tags:
+      - 'v*'
   pull_request:
     branches: [ main ]
 
@@ -38,4 +40,19 @@ jobs:
           name: EN3Cracker_${{ env.CONFIGURATION }}
           path: |
             EN3Cracker/bin/${{ env.CONFIGURATION }}/
+
+      - name: Archive Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: pwsh
+        run: |
+          Compress-Archive -Path "EN3Cracker/bin/${{ env.CONFIGURATION }}/*" -DestinationPath "EN3Cracker.zip"
+
+      - name: Create Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: EN3Cracker.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
