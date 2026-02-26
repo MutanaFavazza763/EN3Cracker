@@ -41,21 +41,10 @@ namespace EN3Cracker
 			CancellationToken ftct = findtaskcts.Token;
 
 			InitializeComponent();
-			Introduction.Selection.Load(new FileStream("./Assets/introduction.rtf", FileMode.Open), DataFormats.Rtf);
 
-			this.ContentRendered += (object sender, EventArgs e) =>
+			this.Loaded += async (object sender, RoutedEventArgs e) =>
 			{
-				AgreementWindow agreementWindow = new AgreementWindow();
-				agreementWindow.Owner = this;
-				if (!agreementWindow.ShowDialog().Value)
-				{
-					Process.GetCurrentProcess().Kill();
-				}
-			};
-			this.ContentRendered += async (object sender, EventArgs e) =>
-			{
-				startbtntext.Text = "正在寻找希沃白板程序目录";
-				progress.IsIndeterminate = true;
+				startbtntext.Text = "正在寻找程序目录...";
 
 				await Task.Run(() =>
 				{
@@ -141,7 +130,7 @@ namespace EN3Cracker
 						}
 						this.Dispatcher.Invoke(new Action(() =>
 						{
-							progress.IsIndeterminate = false;
+							// progress.IsIndeterminate = false;
 						}));
 					}
 				}, ftct);
@@ -178,7 +167,7 @@ namespace EN3Cracker
 				{
 					FileInfo copyfileInfo = new FileInfo("./Crackfiles/Cvte.Platform.Basic.dll");
 					copyfileInfo.CopyTo(System.IO.Path.Combine(enpathbox.Text, "Cvte.Platform.Basic.dll"), true);
-					progress.Value = 100;
+					// progress.Value = 100;
 					startbtntext.Text = "激活成功,即将自动退出";
 					Task.Run(() =>
 					{
