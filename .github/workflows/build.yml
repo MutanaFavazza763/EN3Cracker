@@ -26,7 +26,7 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: Restore packages
-        run: nuget restore $env:PROJECT_PATH
+        run: nuget restore $env:PROJECT_PATH -SolutionDirectory .
 
       - name: Build
         run: msbuild $env:PROJECT_PATH /p:Configuration=$env:CONFIGURATION /v:m
