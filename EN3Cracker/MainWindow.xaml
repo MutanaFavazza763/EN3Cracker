@@ -30,10 +30,6 @@
                         <TextBlock x:Name="startbtntext" HorizontalAlignment="Center" VerticalAlignment="Center">激活</TextBlock>
                     </Grid>
                 </Button>
-                <TextBlock DockPanel.Dock="Top" Margin="0,4,0,0">
-                    GitHub 
-                    <Hyperlink x:Name="repo" NavigateUri="https://github.com/HuskeyDev/EN3Cracker" Click="repo_Click" >https://github.com/HuskeyDev/EN3Cracker</Hyperlink>
-                </TextBlock>
             </DockPanel>
         </Grid>
     </Grid>

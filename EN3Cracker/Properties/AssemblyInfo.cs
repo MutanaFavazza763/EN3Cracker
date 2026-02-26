@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("希沃白板3激活工具")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("HuskeyDev")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("EN3Cracker")]
-[assembly: AssemblyCopyright("HuskeyNetwork Copyright ©  2025")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

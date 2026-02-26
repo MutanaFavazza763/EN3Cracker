@@ -1,4 +1,4 @@
-﻿using Microsoft.Win32;
+using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
@@ -193,12 +193,6 @@ namespace EN3Cracker
 					MessageBox.Show("原因:" + exception.Message, "激活失败", MessageBoxButton.OK, MessageBoxImage.Error);
 				}
 			}
-		}
-
-		private void repo_Click(object sender, RoutedEventArgs e)
-		{
-			Hyperlink link = sender as Hyperlink;
-			Process.Start(new ProcessStartInfo(link.NavigateUri.AbsoluteUri));
 		}
 
 		private void enpathbox_TextChanged(object sender, TextChangedEventArgs e)
