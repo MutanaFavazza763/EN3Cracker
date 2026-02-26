@@ -169,7 +169,14 @@ namespace EN3Cracker
 
 				try
 				{
-					FileInfo copyfileInfo = new FileInfo("./Crackfiles/Cvte.Platform.Basic.dll");
+					string sourcePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Crackfiles", "Cvte.Platform.Basic.dll");
+					if (!File.Exists(sourcePath))
+					{
+						// 回退方案：尝试相对路径
+						sourcePath = "./Crackfiles/Cvte.Platform.Basic.dll";
+					}
+					
+					FileInfo copyfileInfo = new FileInfo(sourcePath);
 
 					// 确保目标文件夹存在 
 					if (!System.IO.Directory.Exists(targetDirectory))
@@ -186,6 +193,10 @@ namespace EN3Cracker
 						Thread.Sleep(1000);
 						Environment.Exit(0);
 					});
+				}
+				catch (System.IO.FileNotFoundException ex)
+				{
+					MessageBox.Show("找不到补丁文件 (Crackfiles/Cvte.Platform.Basic.dll)，请确保程序包完整。\n错误: " + ex.Message, "激活失败", MessageBoxButton.OK, MessageBoxImage.Error);
 				}
 				catch (System.IO.IOException ex)
 				{
