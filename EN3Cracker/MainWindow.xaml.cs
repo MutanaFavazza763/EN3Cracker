@@ -44,6 +44,7 @@ namespace EN3Cracker
 
 			this.Loaded += async (object sender, RoutedEventArgs e) =>
 			{
+				startpatch.IsEnabled = false; // 初始禁用按钮
 				startbtntext.Text = "正在寻找程序目录...";
 
 				await Task.Run(() =>
@@ -109,25 +110,28 @@ namespace EN3Cracker
 						if (finishcode == 0)
 						{
 							this.Dispatcher.Invoke(new Action(() =>
-							{
-								enpathbox.Text = enpath;
-								startbtntext.Text = "激活";
-							}));
-						}
-						else if (finishcode == 1)
 						{
-							this.Dispatcher.Invoke(new Action(() =>
-							{
-								startbtntext.Text = "未自动找到希沃白板程序目录";
-							}));
-						}
-						else if (finishcode == 2)
+							enpathbox.Text = enpath;
+							startbtntext.Text = "激活";
+							startpatch.IsEnabled = true; // 找到后启用按钮
+						}));
+					}
+					else if (finishcode == 1)
+					{
+						this.Dispatcher.Invoke(new Action(() =>
 						{
-							this.Dispatcher.Invoke(new Action(() =>
-							{
-								startbtntext.Text = "寻找希沃白板程序目录时发生错误";
-							}));
-						}
+							startbtntext.Text = "未自动找到希沃白板程序目录";
+							startpatch.IsEnabled = true; // 未找到也允许手动选择后点击
+						}));
+					}
+					else if (finishcode == 2)
+					{
+						this.Dispatcher.Invoke(new Action(() =>
+						{
+							startbtntext.Text = "寻找程序目录时发生错误";
+							startpatch.IsEnabled = true;
+						}));
+					}
 						this.Dispatcher.Invoke(new Action(() =>
 						{
 							// progress.IsIndeterminate = false;
