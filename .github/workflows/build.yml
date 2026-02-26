@@ -1,0 +1,41 @@
+name: build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build (.NET Framework)
+    runs-on: windows-latest
+
+    env:
+      CONFIGURATION: Release
+      PROJECT_PATH: EN3Cracker/EN3Cracker.csproj
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v2
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Restore packages
+        run: nuget restore $env:PROJECT_PATH
+
+      - name: Build
+        run: msbuild $env:PROJECT_PATH /p:Configuration=$env:CONFIGURATION /v:m
+
+      - name: Upload artifacts
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: EN3Cracker_${{ env.CONFIGURATION }}
+          path: |
+            EN3Cracker/bin/${{ env.CONFIGURATION }}/
+
