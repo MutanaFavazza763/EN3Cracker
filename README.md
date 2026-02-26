@@ -34,10 +34,6 @@
 激活后，关于页面将显示为已激活状态：
 <img width="480" alt="image" src="https://github.com/user-attachments/assets/1e4b03d9-b946-4937-88f1-d47ca83b8164" />
 
-### 功能恢复
-诸如“手写识别”等依赖激活的功能可正常使用：
-<img width="480" alt="image" src="https://github.com/user-attachments/assets/3e1c48e8-feb0131ba1" />
-
 ## ⚠️ 免责声明
 
 - 本项目仅供学习交流逆向工程技术使用，严禁用于任何商业用途。
