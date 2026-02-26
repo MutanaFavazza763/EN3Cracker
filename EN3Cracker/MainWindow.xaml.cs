@@ -163,23 +163,43 @@ namespace EN3Cracker
 			}
 			void crack()
 			{
+				string targetDirectory = enpathbox.Text;
+				string fileName = "Cvte.Platform.Basic.dll";
+				string destPath = System.IO.Path.Combine(targetDirectory, fileName);
+
 				try
 				{
 					FileInfo copyfileInfo = new FileInfo("./Crackfiles/Cvte.Platform.Basic.dll");
-					copyfileInfo.CopyTo(System.IO.Path.Combine(enpathbox.Text, "Cvte.Platform.Basic.dll"), true);
-					// progress.Value = 100;
+
+					// 确保目标文件夹存在 
+					if (!System.IO.Directory.Exists(targetDirectory))
+					{
+						System.IO.Directory.CreateDirectory(targetDirectory);
+					}
+
+					// 执行拷贝 
+					copyfileInfo.CopyTo(destPath, true);
+
 					startbtntext.Text = "激活成功,即将自动退出";
 					Task.Run(() =>
 					{
 						Thread.Sleep(1000);
 						Environment.Exit(0);
 					});
-
-
 				}
-				catch (IOException exception)
+				catch (System.IO.IOException ex)
 				{
-					MessageBox.Show("原因:" + exception.Message, "激活失败", MessageBoxButton.OK, MessageBoxImage.Error);
+					// 通常是因为文件被占用 
+					MessageBox.Show("文件正在使用中，请关闭相关程序后再试。\n原因: " + ex.Message, "激活失败", MessageBoxButton.OK, MessageBoxImage.Error);
+				}
+				catch (System.UnauthorizedAccessException)
+				{
+					// 权限问题 
+					MessageBox.Show("没有权限写入该目录，请尝试以管理员身份运行此程序。", "激活失败", MessageBoxButton.OK, MessageBoxImage.Error);
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show("发生未知错误: " + ex.Message, "激活失败", MessageBoxButton.OK, MessageBoxImage.Error);
 				}
 			}
 		}
